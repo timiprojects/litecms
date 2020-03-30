@@ -24,7 +24,7 @@ function clearStorage() {
 ;(function() {
     //localStorage.clear()
     displayItems(oldItems)
-    //clearStorage()
+    clearStorage()
 })()
 
 function displayItems(items,comp=null){
