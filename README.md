@@ -1,7 +1,5 @@
 # SMALLZ (url-shortener)
 
-"""
-dhgkjdk
-hkdjgkmkdjdlg
-"""
+\*Smallz is a simple url shortener built with ***NodeJs***\*
+kjdlfd;
 
