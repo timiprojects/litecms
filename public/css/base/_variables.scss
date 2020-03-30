@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+$color-purple: #9b59b6;
+$color-primary: #c0392b ;
+$color-green: #27ae60 ;
+$color-secondary: #e74c3c ;
+$color-light: #fff;
+$color-darkest: #2d3436;
+$color-darker: #2c3e50 ;
+$color-dark: #34495e ;
+$color-dark-light: rgb(221, 220, 220) ;
+
+$color-gradient: linear-gradient(top left, $color-primary, $color-purple );
+
+body {
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: $color-light;
+
+    &::before {
+        display: block;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background: $color-gradient;
+        clip-path: circle(35% at 80% 10%);
+
+        @include responsive(md) {
+            clip-path: circle(28% at 100% 10%);
+        }
+    }
+}
+
+.padding-all {
+    padding: 1rem;
+}

@@ -1,0 +1,8 @@
+POST http://localhost/link/shorten
+content-type: application/json
+
+{
+    "longUrl": "https://cloud.mongodb.ca/v2/5c20f7599ccf643dc924c02e#clusters/connect?clusterId=Cluster0"
+}
+
+# GET http://localhost/link/?name=timi

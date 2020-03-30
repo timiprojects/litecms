@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Timilehin David Sobola",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.1",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
+    "flash": "^1.1.0",
+    "http-errors": "^1.7.3",
+    "mongoose": "^5.9.6",
+    "shortid": "^2.2.15",
+    "valid-url": "^1.0.9"
+  }
+}
