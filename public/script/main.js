@@ -29,11 +29,11 @@ function clearStorage() {
 
 function displayItems(items,comp=null){
     Items.innerHTML = ""
-    if(items.length > 0) {
+    if(items) {
         items.forEach(item => {
             //console.log(item)
-            if(comp === item.longLink)
-                return;
+            // if(comp === item.longLink)
+            //     return;
             return Items.innerHTML += `
             <li class="item">
             <p class="item-longurl">${item["longLink"]}</p>

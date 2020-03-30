@@ -11,8 +11,6 @@ const { Link } = require('../models/Link.model')
 //get baseUrl
 const baseUrl = process.env.PUBLIC_URL || process.env.baseURL
 
-
-
 //POST URL TO STORAGE
 router.post('/shorten', async (req, res) => {
     const { longUrl } = req.body
