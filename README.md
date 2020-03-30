@@ -1,5 +1,8 @@
 # SMALLZ (url-shortener)
 
-\*Smallz is a simple url shortener built with ***NodeJs***\*
-kjdlfd;
+Smallz is a minimal url shortener built with ***NodeJs***,***MongoDB***, and ***EJS*** framework
+
+---
+### Setup
+`code`
 
