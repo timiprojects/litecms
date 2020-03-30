@@ -34,12 +34,12 @@ function displayItems(items,comp=null){
             //console.log(item)
             // if(comp === item.longLink)
             //     return;
-            return Items.innerHTML += `
+            return (item) ? Items.innerHTML += `
             <li class="item">
             <p class="item-longurl">${item["longLink"]}</p>
             <a href="${item.shortLink}" target="_blank" class="item-shorturl">${item.shortLink}</a>
             </li>
-            `
+            ` : Items.innerHTML = `<li class="item"><p class="item-longurl">No links available</p></li>`
         })
     }
 }
