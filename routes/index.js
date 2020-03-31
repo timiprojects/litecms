@@ -16,11 +16,11 @@ router.get('/:code', async (req, res) => {
         if(link){
             res.status(200).redirect(link.longLink)
         }else {
-            return res.status(404).render('error')
+            res.status(404).render('error', {error: {status: 404}, message: "NOT FOUND"})
         }
         
     } catch (error) {
-        return res.status(401).json(handleResponse("error", "Check connection or field", error))
+        res.status(404).render('error', {error, message: ""})
     }
 })
 
