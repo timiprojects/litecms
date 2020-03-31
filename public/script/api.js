@@ -9,7 +9,7 @@ function useFetch(url, type) {
             return `${p[0]}=${p[1]}`
         }).join('&')
         const link = (param) ? `${baseUrl}${url}?${param}` : baseUrl + url
-        console.log("DATA: ", data)
+        
         try {
             loading = true
             const networkResponse = await fetch(link, {
