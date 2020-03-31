@@ -27,5 +27,5 @@ Run application on
 
 `localhost:80`
 
-View demo [here]("https://smallzurl.herokuapp.com")
+View demo [here](https://smallzurl.herokuapp.com)
 
