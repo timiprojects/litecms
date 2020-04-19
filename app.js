@@ -1,40 +1,45 @@
+const { json, urlencoded, static } = require('express')
 const express = require('express')
 const http = require('http')
 const cors = require('cors')
+const session = require('express-session')
+const passport = require('passport')
 require('dotenv/config')
 const path = require('path')
-const session = require('express-session')
 
-const expressLayout = require('express-ejs-layouts')
+
+require('./handlers/passport')
+
+//const expressLayout = require('express-ejs-layouts')
 const flash = require('flash')
 const createError = require('http-errors')
 
 //CONNECT TO MONGODB
 const mongoose = require('mongoose')
 const db = process.env.mongoURI
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true}, () => {
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true}, () => {
     console.log("Connected to DB successfully!")
 })
 
+const { baseURL } = require('./handlers/config')
+
 //IMPORT ROUTES
-const indexRoutes = require('./routes/index')
-const linkRoutes = require('./routes/link')
+const authRoutes = require('./routes/auth/auth')
+const postsRoutes = require('./routes/posts/posts')
+const categoryRoutes = require('./routes/categories/categories')
 
-const app = express()
-
-//ALLOCATE PORT
-const PORT = process.env.PORT || 80
+let app = express()
 
 //MIDDLEWARE
-app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(json())
+app.use(urlencoded({extended: false}))
 app.use(cors())
 //set view engine to ejs
-app.use(expressLayout)
-app.set('view engine', 'ejs')
-app.use(express.static(path.join(__dirname, '/public')))
+// app.use(expressLayout)
+// app.set('view engine', 'ejs')
+// app.use(static(path.join(__dirname, '/public')))
 
-// Express session
+//Express session
 app.use(
     session({
         secret: 'secret',
@@ -42,6 +47,10 @@ app.use(
         saveUninitialized: true,
     })
 );
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(flash())
 
@@ -53,11 +62,19 @@ app.use(function (req, res, next) {
     next();
 });
 
-
 //ROUTES
-app.use('/', indexRoutes)
-app.use('/link', linkRoutes)
+app.use(`${baseURL}/auth`, authRoutes)
+app.use(`${baseURL}/posts`, postsRoutes)
+app.use(`${baseURL}/category`, categoryRoutes)
 
+//Server static assets
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('/client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    });
+}
 //error 404 handler
 app.use((req, res, next) => {
     next(createError(404))
@@ -71,8 +88,11 @@ app.use(function (err, req, res, next) {
     //render error page
     res.status(err.status || 500);
     res.render('error')
-    //next()
+    next()
 })
+
+//ALLOCATE PORT
+const PORT = process.env.PORT || 5000
 
 //START SERVER ON 
 http.createServer(app).listen(PORT, () => {

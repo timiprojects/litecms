@@ -4,12 +4,17 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "server": "nodemon app.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Timilehin David Sobola",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^4.0.1",
+    "concurrently": "^5.1.0",
     "config": "^3.3.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -19,7 +24,12 @@
     "express-session": "^1.17.0",
     "flash": "^1.1.0",
     "http-errors": "^1.7.3",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.6",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pusher": "^3.0.1",
     "shortid": "^2.2.15",
     "valid-url": "^1.0.9"
   }
