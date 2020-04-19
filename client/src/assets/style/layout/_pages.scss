@@ -1,0 +1,58 @@
+.pages {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-title {
+            display: inline-block;
+            vertical-align: middle;
+            text-transform: capitalize;
+            color: $dark;
+        }
+
+        a {
+            text-transform: capitalize;
+        }
+    }
+
+    &-content {
+        margin: 20px 0;
+
+        &.summary {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+        }
+
+        .flash-card {
+            display: block;
+            width: 100%;
+            background: $light;
+            box-shadow: 0 0 5px rgba($color: $dark, $alpha: 0.3);
+            border-radius: $border-box;
+
+            &--body {
+                padding: 15px;
+
+                &-title {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .number {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

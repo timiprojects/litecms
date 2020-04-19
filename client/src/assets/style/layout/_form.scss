@@ -1,0 +1,140 @@
+.postform {
+    position: relative;
+    display: grid;
+    grid-template-columns: 70% 25%;
+    gap: 10px;
+    width: 100%;
+
+    .left, .right {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+
+    &-group {
+        display: block;
+        position: relative;
+        margin-bottom: 25px;
+        width: 100%;
+    }
+
+    &-input {
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 10px;
+        border-radius: $border-box;
+        border: 1px solid rgba($color: $dark, $alpha: 0.2);
+    }
+
+    &-checkbox {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        height: 20px;
+
+        label {
+            margin-left: 5px;
+            font-size: 14px;
+            text-transform: capitalize;
+            vertical-align: middle;
+            height: 100%;
+            color: $dark;
+        }
+
+        input {
+            font-size: 14px;
+            height: 100%;
+        }
+    }
+
+    &-select {
+        display: block;
+        width: 100%;
+
+        &-one {
+            height: 150px;
+            background: none;
+            border: none;
+        }
+    }
+
+    textarea{
+        height: 400px;
+        resize: none;
+
+        &.style-one {
+            max-height: 100px !important;
+        }
+    }
+
+    .right {
+        position: relative;
+        display: block;
+        width: 100%;
+
+        .card {
+            display: block;
+            width: 100%;
+            background: $light;
+            margin-bottom: 15px;
+
+            &-header {
+                position: relative;
+                display: block;
+                padding: 10px;
+                font-weight: bold;
+                border-bottom: 1px solid rgba($color: $dark, $alpha: 0.4);
+            }
+            &-body {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                margin: 0;
+                list-style: none;
+
+                &-img {
+                    position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    margin: 0 auto;
+                    max-height: 150px;
+                    object-fit: cover;
+                    object-position: center;
+                    overflow: hidden;
+                }
+
+                &.flex {
+                    display: inline-block;
+                    width: 100%;
+                    max-height: 200px;
+
+                    .inner {
+                        position: relative;
+                        display: inline-grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        width: 100%;
+                        padding: 10px;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                        height: 90%;
+                    }
+                }
+            }
+            &-footer {
+                display: block;
+                width: 100%;
+                padding: 10px 10px 2px 5px;
+                border-top: 1px solid rgba($color: $dark, $alpha: 0.2);
+            }
+        }
+    }
+}
+
+.select {
+    border-radius: $border-box;
+    margin: 0 5px;
+    padding: 3px 10px;
+    border: none;
+    box-shadow: 0 0 5px rgba($color: $dark, $alpha: 0.2);
+}

@@ -1,0 +1,166 @@
+.tables {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    &-top {
+        position: relative;
+        display: block;
+        width: 100%;
+
+        .heading {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            font-size: 14px;
+
+            p {
+                position: relative;
+                padding: 0 10px;
+                margin: 0px;
+                display: inline-block;
+                border-left: 1px solid $dark;
+
+                &:first-child {
+                    padding-left: 0;
+                    border-left: none;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+
+            &-value {
+                color: $dark-light;
+                font-weight: bold;
+            }
+        }
+
+        .filters {
+            position: relative;
+            margin: 15px 0;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+
+            &-left, &-right {
+                display: block;
+                position: relative;
+
+                .page {
+                    display: inline-block;
+                    color: $dark;
+                    font-size: 14px;
+                }
+                .child {
+                    margin: 0 5px;
+                }
+
+                .limit {
+                    margin: 0 15px;
+                }
+            }
+
+            &-right {
+                display: inherit;
+                align-items: center;
+            }
+        }
+    }
+
+    &-content {
+        position: relative;
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+
+        table {
+            position: relative;
+            width: 100%;
+            text-align: left;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            background: $light;
+            color: $dark;
+            border-collapse: collapse;
+            border-spacing: 0 !important;
+
+            thead {
+                position: relative;
+                width: 100%;
+                //border-bottom: 1px solid rgba($color: $dark, $alpha: 0.3);
+            }
+            tbody {
+                position: relative;
+                width: 100%;
+                //border: 1px solid rgba($color: $dark, $alpha: 0.2);
+
+                tr {
+                    &:nth-child(odd) {
+                        background: $gray;
+                    }
+                }
+
+                a {
+                    color: $info;
+                }
+            }
+
+            tr {
+                //display: table-row;
+                border: none;
+            }
+
+            
+            td, th {
+                //display: table-cell;
+                padding: 5px 15px;
+                border: 1px solid #ddd;
+            }
+
+            th {
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .category {
+                //width: 50%;
+                display: inline-grid;
+                grid-template-columns: repeat(4, 1fr) 50px;
+                width: 100%;
+
+                td {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: stretch;
+                    height: 100%;
+
+                    &:last-child {
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .posts {
+                display: grid;
+                grid-template-columns: 1fr repeat(3, .5fr) 50px;
+                width: 100%;
+
+                td {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: stretch;
+                    height: 100%;
+
+                    &:last-child {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}

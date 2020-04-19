@@ -1,0 +1,105 @@
+.button {
+    position: relative;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: .3rem;
+    color: #fff;
+    transition: all 500ms ease-in-out;
+    margin-bottom: 15px;
+
+    &-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        a {
+            display: block;
+            padding: 10px;
+            font-size: 12px;
+        }
+    }
+
+    &-block {
+        display: block;
+        width: 100%;
+    }
+
+    &-primary {
+        background: $primary;
+        color: $light;
+        box-shadow: 0 0 5px rgba($color: $primary, $alpha: 0.4);
+        
+        &:hover, &:active{
+            background: darken($color: $primary, $amount: 5.0);
+        }
+    }
+
+    &-peru {
+        background: $peru;
+        color: $light;
+        box-shadow: 0 0 5px rgba($color: $peru, $alpha: 0.4);
+        border: none;
+        
+        &:hover, &:active{
+            background: darken($color: $peru, $amount: 5.0);
+        }
+    }
+
+    &-light {
+        background: $light;
+        color: $peru;
+        box-shadow: 0 0 5px rgba($color: $light, $alpha: 0.4);
+        border: none;
+        
+        &:hover, &:active{
+            background: darken($color: $light, $amount: 3.0);
+        }
+    }
+
+    &-secondary {
+        background: $secondary;
+    }
+    &-info {
+        background: $info;
+    }
+    &-dark {
+        background: $dark;
+    }
+    &-warning {
+        background: $warning;
+    }
+    &-danger {
+        background: $danger;
+        color: $light;
+
+        &-outline {
+            background: transparent;
+            color: $danger;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &-small {
+        padding: 8px 15px;
+    }
+
+    &-smaller {
+        padding: 5px 15px;
+    }
+
+    &-medium {
+        padding: 10px;
+    }
+
+    &-right {
+        display: block;
+        position: relative;
+        right: 0;
+        margin-right: 0;
+        margin-left: auto;
+        text-transform: capitalize;
+    }
+}
